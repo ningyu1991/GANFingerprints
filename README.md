@@ -50,7 +50,7 @@ For each dataset, we pre-train four GAN sources:
     --app gen \
     --model_path models/celeba_align_png_cropped.pkl \
     --out_image_dir gen/celeba_align_png_cropped/ \
-    --num_pngs 10000
+    --num_pngs 10000 \
     --gen_seed 0
     ```
     where
@@ -58,3 +58,5 @@ For each dataset, we pre-train four GAN sources:
     - `out_image_dir`: The outpupt directory containing generated images.
     - `num_pngs`: The number of generated images in the format of .png.
     - `gen_seed`: The random seed that differentiates generation instances.
+- [SNGAN](https://github.com/pfnet-research/sngan_projection)
+  - 
