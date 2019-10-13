@@ -59,3 +59,5 @@ For each dataset, we pre-train four GAN sources:
     - `num_pngs`: The number of generated images in the format of .png.
     - `gen_seed`: The random seed that differentiates generation instances.
 - [SNGAN](https://github.com/pfnet-research/sngan_projection)
+  - Their code requires Python 2.7 instead of Python 3.6, and additionally requires: chainer, cython, cupy, pyyaml.
+  
