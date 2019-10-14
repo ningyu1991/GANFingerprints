@@ -86,14 +86,12 @@ For each dataset, we pre-train four GAN sources:
     --config_path configs/sn_projection_celeba.yml \
     --data_dir ../celeba_align_png_cropped/ \
     --results_dir models/celeba_align_png_cropped \
-    --gpu 0 \
     --loaderjob 32
     ```
     where
     - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
     - `data_dir`: The training dataset directory containing 128x128 png images.
     - `results_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
-    - `gpu`: The GPU device ID to use.
     - `loaderjob`: The number of parallel data loading processes.
   - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1q9o8qToZ44WifVBRdu9LM6-DHjl3oi9f?usp=sharing) and put them at `./SNGAN/models/`.
   - **Generation**. Run, e.g.,
@@ -105,7 +103,6 @@ For each dataset, we pre-train four GAN sources:
     --results_dir gen/celeba_align_png_cropped \
     --num_pngs 10000 \
     --seed 0 \
-    --gpu 0
     ```
     where
     - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
@@ -113,13 +110,13 @@ For each dataset, we pre-train four GAN sources:
     - `results_dir`: The outpupt directory containing generated images.
     - `num_pngs`: The number of generated images in the format of .png.
     - `seed`: The random seed that differentiates generation instances.
-    - `gpu`: The GPU device ID to use.
 - [MMDGAN](https://github.com/mbinkowski/MMD-GAN)
   - **Training**. Run, e.g.,
     ```
     cd MMD/
-    python gan/main.py \
-    --dataset=celebA \
+    python3 gan/main.py \
+    --is_train Train \
+    --dataset celebA \
     --data_dir ../celeba_align_png_cropped/ \
     --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
     --sample_dir celeba_align_png_cropped/samples/ \
@@ -128,6 +125,12 @@ For each dataset, we pre-train four GAN sources:
     --architecture g_resnet5 --output_size 128 --dof_dim 16 \
     --gradient_penalty 1. --L2_discriminator_penalty 1. \
     --MMD_lr_scheduler \
-    --is_train Train \
     --random_seed 0
     ```
+    where
+    - `dataset`: The dataset ID.
+    - `data_dir`: The training dataset directory containing 128x128 png images.
+    - `checkpoint_dir`: The output directory containing trained models and training snapshots.
+    - `sample_dir`: The output directory containing generated samples during training.
+    - `log_dir`: The output directory containing training log.
+    - `random_seed`: The random seed that differentiates training instances.
