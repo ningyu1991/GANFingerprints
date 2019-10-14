@@ -28,13 +28,21 @@ To train GANs and our classifiers, we consider two real-world datasets:
 ## GAN Models
 For each dataset, we pre-train four GAN sources:
 - [ProGAN](https://github.com/tkarras/progressive_growing_of_gans)
-  - **Data preparation**. Follow their "Preparing datasets for training" Section for dataset preparation. Use the `create_from_images` option in `./ProGAN/dataset_tool.py`. The prepared data enables efficient streaming.
+  - **Data preparation**. Run, e.g.,
+    ```
+    cd ProGAN/
+    python3 dataset_tool.py \
+    create_from_images \
+    datasets/celeba_align_png_cropped/ \
+    ../../celeba_align_png_cropped/
+    ```
+    where `datasets/celeba_align_png_cropped/` is the output directory containing the prepared data format that enables efficient streaming, and `../../celeba_align_png_cropped/` is the training dataset directory containing 128x128 png images.
   - **Training**. Run, e.g.,
     ```
     cd ProGAN/
     python3 run.py \
     --app train \
-    --training_data_dir datasets/celeba_align_png_cropped_seed_v0/ \
+    --training_data_dir datasets/celeba_align_png_cropped/ \
     --out_model_dir models/celeba_align_png_cropped_seed_v0/ \
     --training_seed 0
     ```
@@ -70,7 +78,7 @@ For each dataset, we pre-train four GAN sources:
     cd SNGAN/datasets/
     python3 lsun_bedroom_200k.py ../../lsun_bedroom_train_200k_png/
     ```
-    where `../../img_align_celeba_png/` and `../../lsun_bedroom_train_200k_png/` are the training dataset directories containing 128x128 png images.
+    where `../../celeba_align_png_cropped/` and `../../lsun_bedroom_train_200k_png/` are the training dataset directories containing 128x128 png images.
   - **Training**. Run, e.g.,
     ```
     cd SNGAN/
