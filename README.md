@@ -26,7 +26,7 @@ To train GANs and our classifiers, we consider two real-world datasets:
 - [LSUN](https://github.com/fyu/lsun) bedroom scene dataset. We select the first 200k images, center-crop them to square size according to the shorter side length, and resize them to 128x128 before training.
   
 ## GAN Models
-For each dataset, we pre-train four GAN sources:
+For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, MMDGAN, and CramerGAN
 - [ProGAN](https://github.com/tkarras/progressive_growing_of_gans)
   - **Data preparation**. Run, e.g.,
     ```
@@ -157,3 +157,40 @@ For each dataset, we pre-train four GAN sources:
     where
     - `output_dir_of_test_samples`: The outpupt directory containing generated images.
     - `no_of_samples`: The number of generated images.
+- [CramerGAN](https://github.com/mbinkowski/MMD-GAN) (The same API as MMDGAN)
+  - **Training**. Run, e.g.,
+    ```
+    export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
+    export CUDA_VISIBLE_DEVICES=0
+    cd CramerGAN/
+    python3 gan/main.py \
+    --is_train True \
+    --dataset celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir models/ \
+    --sample_dir samples/ \
+    --log_dir logs/ \
+    --model cramer --name cramer_gan \
+    --architecture g_resnet5 --output_size 128 --dof_dim 256 \
+    --gradient_penalty 10. \
+    --MMD_lr_scheduler \
+    --random_seed 0
+    ```
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1VpD69vknOWbRWt-qb5BryIWKs87EPRis?usp=sharing) and put them at `CramerGAN/models/cramer_gan/`.
+  - **Generation**. Run, e.g.,
+    ```
+    export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
+    export CUDA_VISIBLE_DEVICES=0
+    cd MMDGAN/
+    python3 gan/main.py \
+    --dataset celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir models/ \
+    --output_dir_of_test_samples gen/celeba_align_png_cropped/ \
+    --no_of_samples 10000 \
+    --model cramer --name cramer_gan \
+    --architecture g_resnet5 --output_size 128 --dof_dim 256 \
+    --gradient_penalty 10. \
+    --MMD_lr_scheduler \
+    --random_seed 0
+    ```
