@@ -120,9 +120,9 @@ For each dataset, we pre-train four GAN sources:
     --is_train True \
     --dataset celebA \
     --data_dir ../celeba_align_png_cropped/ \
-    --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
-    --sample_dir celeba_align_png_cropped/samples/ \
-    --log_dir celeba_align_png_cropped/logs/ \
+    --checkpoint_dir models/ \
+    --sample_dir samples/ \
+    --log_dir logs/ \
     --model mmd --name mmd --kernel mix_rq_1dot \
     --architecture g_resnet5 --output_size 128 --dof_dim 16 \
     --gradient_penalty 1. --L2_discriminator_penalty 1. \
@@ -136,6 +136,7 @@ For each dataset, we pre-train four GAN sources:
     - `sample_dir`: The output directory containing generated samples during training.
     - `log_dir`: The output directory containing training log.
     - `random_seed`: The random seed that differentiates training instances.
+  - **Pre-trained models**. Download our pre-trained models [here]() and put them at `./models/`.
   - **Generation**. Run, e.g.,
     ```
     export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
@@ -144,7 +145,7 @@ For each dataset, we pre-train four GAN sources:
     python3 gan/main.py \
     --dataset celebA \
     --data_dir ../celeba_align_png_cropped/ \
-    --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
+    --checkpoint_dir models/ \
     --output_dir_of_test_samples gen/celeba_align_png_cropped/ \
     --no_of_samples 10000 \
     --model mmd --name mmd --kernel mix_rq_1dot \
