@@ -77,7 +77,7 @@ For each dataset, we pre-train four GAN sources:
     python3 train.py \
     --config_path configs/sn_projection_celeba.yml \
     --data_dir ../celeba_align_png_cropped/ \
-    --results_dir results/celeba_align_png_cropped \
+    --results_dir models/celeba_align_png_cropped \
     --gpu 0 \
     --loaderjob 32
     ```
@@ -87,11 +87,13 @@ For each dataset, we pre-train four GAN sources:
     - `results_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
     - `gpu`: The GPU device ID to use.
     - `loaderjob`: The number of parallel data loading processes.
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1q9o8qToZ44WifVBRdu9LM6-DHjl3oi9f?usp=sharing) and put them at `./SNGAN/models/`.
   - **Generation**. Run, e.g.,
     ```
+    cd SNGAN/
     python3 evaluations/gen_images.py \
     --config_path configs/sn_projection_celeba.yml \
-    --snapshot results/celeba_align_png_cropped.npz \
+    --snapshot models/celeba_align_png_cropped.npz \
     --results_dir gen/celeba_align_png_cropped \
     --num_pngs 10000 \
     --seed 0 \
