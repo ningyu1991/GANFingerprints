@@ -40,7 +40,7 @@ For each dataset, we pre-train four GAN sources:
     ```
     where
     - `training_data_dir`: The prepared training dataset directory that can be efficiently called by the code.
-    - `out_model_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
+    - `out_model_dir`: The output directory containing trained models, training configureation, training log, and training snapshots.
     - `training_seed`: The random seed that differentiates training instances.
   - Pre-trained models. Download our pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `./ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
   - Generation. With pre-trained model, generate images by running, e.g.,
@@ -54,9 +54,9 @@ For each dataset, we pre-train four GAN sources:
     --gen_seed 0
     ```
     where
-    - `model_path`: The pre-trained GAN model in the format of .pkl.
+    - `model_path`: The pre-trained GAN model.
     - `out_image_dir`: The outpupt directory containing generated images.
-    - `num_pngs`: The number of generated images in the format of .png.
+    - `num_pngs`: The number of generated images.
     - `gen_seed`: The random seed that differentiates generation instances.
 - [SNGAN](https://github.com/pfnet-research/sngan_projection)
   - Additional Python dependencies: chainer, cython, cupy, pyyaml.
@@ -82,8 +82,25 @@ For each dataset, we pre-train four GAN sources:
     --loaderjob 32
     ```
     where
-    - `config_path`: The hyper-parameter and configuration file for training. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
+    - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
     - `data_dir`: The training dataset directory containing 128x128 png images.
     - `results_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
     - `gpu`: The GPU device ID to use.
     - `loaderjob`: The number of parallel data loading processes.
+  - Generation. Run, e.g.,
+    ```
+    python3 evaluations/gen_images.py \
+    --config_path configs/sn_projection_celeba.yml \
+    --snapshot results/celeba_align_png_cropped.npz \
+    --results_dir gen/celeba_align_png_cropped \
+    --num_pngs 10000 \
+    --seed 0 \
+    --gpu 0 \
+    ```
+    where
+    - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
+    - `snapshot`: The pre-trained GAN model.
+    - `results_dir`: The outpupt directory containing generated images.
+    - `num_pngs`: The number of generated images in the format of .png.
+    - `seed`: The random seed that differentiates generation instances.
+    - `gpu`: The GPU device ID to use.
