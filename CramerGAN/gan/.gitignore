@@ -1,0 +1,15 @@
+/checkpoint_*
+/logs_*
+/samples_*
+/official_samples
+/*.pyc
+/*.ipynb
+/run*.sh
+/temp*
+/*cluster*
+/data
+/__pycache__
+stream_mmd.py
+test.py
+download.py
+model_me*
