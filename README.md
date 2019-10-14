@@ -28,8 +28,8 @@ To train GANs and our classifiers, we consider two real-world datasets:
 ## GAN Models
 For each dataset, we pre-train four GAN sources:
 - [ProGAN](https://github.com/tkarras/progressive_growing_of_gans)
-  - Data preparation. Follow their "Preparing datasets for training" Section for dataset preparation. Use the `create_from_images` option in `./ProGAN/dataset_tool.py`. The prepared data enables efficient streaming.
-  - Training. Run, e.g.,
+  - **Data preparation**. Follow their "Preparing datasets for training" Section for dataset preparation. Use the `create_from_images` option in `./ProGAN/dataset_tool.py`. The prepared data enables efficient streaming.
+  - **Training**. Run, e.g.,
     ```
     cd ProGAN/
     python3 run.py \
@@ -42,8 +42,8 @@ For each dataset, we pre-train four GAN sources:
     - `training_data_dir`: The prepared training dataset directory that can be efficiently called by the code.
     - `out_model_dir`: The output directory containing trained models, training configureation, training log, and training snapshots.
     - `training_seed`: The random seed that differentiates training instances.
-  - Pre-trained models. Download our pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `./ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
-  - Generation. With pre-trained model, generate images by running, e.g.,
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `./ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
+  - **Generation**. With pre-trained model, generate images by running, e.g.,
     ```
     cd ProGAN/
     python3 run.py \
@@ -59,8 +59,8 @@ For each dataset, we pre-train four GAN sources:
     - `num_pngs`: The number of generated images.
     - `gen_seed`: The random seed that differentiates generation instances.
 - [SNGAN](https://github.com/pfnet-research/sngan_projection)
-  - Additional Python dependencies: chainer, cython, cupy, pyyaml.
-  - Data preparation. Run
+  - **Additional Python dependencies**: chainer, cython, cupy, pyyaml.
+  - **Data preparation**. Run
     ```
     cd SNGAN/datasets/
     python3 celeba.py ../../celeba_align_png_cropped/
@@ -71,7 +71,7 @@ For each dataset, we pre-train four GAN sources:
     python3 lsun_bedroom_200k.py ../../lsun_bedroom_train_200k/
     ```
     where `../../img_align_celeba_png/` and `../../lsun_bedroom_train_200k/` are the training dataset directories containing 128x128 png images.
-  - Training. Run, e.g.,
+  - **Training**. Run, e.g.,
     ```
     cd SNGAN/
     python3 train.py \
@@ -87,7 +87,7 @@ For each dataset, we pre-train four GAN sources:
     - `results_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
     - `gpu`: The GPU device ID to use.
     - `loaderjob`: The number of parallel data loading processes.
-  - Generation. Run, e.g.,
+  - **Generation**. Run, e.g.,
     ```
     python3 evaluations/gen_images.py \
     --config_path configs/sn_projection_celeba.yml \
@@ -95,7 +95,7 @@ For each dataset, we pre-train four GAN sources:
     --results_dir gen/celeba_align_png_cropped \
     --num_pngs 10000 \
     --seed 0 \
-    --gpu 0 \
+    --gpu 0
     ```
     where
     - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
