@@ -50,7 +50,7 @@ For each dataset, we pre-train four GAN sources:
     - `training_data_dir`: The prepared training dataset directory that can be efficiently called by the code.
     - `out_model_dir`: The output directory containing trained models, training configureation, training log, and training snapshots.
     - `training_seed`: The random seed that differentiates training instances.
-  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `./ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
   - **Generation**. With pre-trained model, generate images by running, e.g.,
     ```
     cd ProGAN/
@@ -93,7 +93,7 @@ For each dataset, we pre-train four GAN sources:
     - `data_dir`: The training dataset directory containing 128x128 png images.
     - `results_dir`: The output directory containing trained models, training configureations, training log, and training snapshots.
     - `loaderjob`: The number of parallel data loading processes.
-  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1q9o8qToZ44WifVBRdu9LM6-DHjl3oi9f?usp=sharing) and put them at `./SNGAN/models/`.
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1q9o8qToZ44WifVBRdu9LM6-DHjl3oi9f?usp=sharing) and put them at `SNGAN/models/`.
   - **Generation**. Run, e.g.,
     ```
     cd SNGAN/
@@ -136,7 +136,7 @@ For each dataset, we pre-train four GAN sources:
     - `sample_dir`: The output directory containing generated samples during training.
     - `log_dir`: The output directory containing training log.
     - `random_seed`: The random seed that differentiates training instances.
-  - **Pre-trained models**. Download our pre-trained models [here]() and put them at `./MMDGAN/models/`.
+  - **Pre-trained models**. Download our pre-trained models [here]() and put them at `MMDGAN/models/`.
   - **Generation**. Run, e.g.,
     ```
     export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
