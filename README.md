@@ -114,3 +114,20 @@ For each dataset, we pre-train four GAN sources:
     - `num_pngs`: The number of generated images in the format of .png.
     - `seed`: The random seed that differentiates generation instances.
     - `gpu`: The GPU device ID to use.
+- [MMDGAN] (https://github.com/mbinkowski/MMD-GAN)
+  - **Training**. Run, e.g.,
+    ```
+    cd MMD/
+    python gan/main.py \
+    --dataset=celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
+    --sample_dir celeba_align_png_cropped/samples/ \
+    --log_dir celeba_align_png_cropped/logs/ \
+    --model mmd --name mmd --kernel mix_rq_1dot \
+    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
+    --gradient_penalty 1. --L2_discriminator_penalty 1. \
+    --MMD_lr_scheduler \
+    --is_train Train \
+    --random_seed 0
+    ```
