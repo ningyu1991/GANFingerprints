@@ -114,7 +114,7 @@ For each dataset, we pre-train four GAN sources:
     - `num_pngs`: The number of generated images in the format of .png.
     - `seed`: The random seed that differentiates generation instances.
     - `gpu`: The GPU device ID to use.
-- [MMDGAN] (https://github.com/mbinkowski/MMD-GAN)
+- [MMDGAN](https://github.com/mbinkowski/MMD-GAN)
   - **Training**. Run, e.g.,
     ```
     cd MMD/
