@@ -34,9 +34,9 @@ For each dataset, we pre-train four GAN sources:
     python3 dataset_tool.py \
     create_from_images \
     datasets/celeba_align_png_cropped/ \
-    ../../celeba_align_png_cropped/
+    ../celeba_align_png_cropped/
     ```
-    where `datasets/celeba_align_png_cropped/` is the output directory containing the prepared data format that enables efficient streaming, and `../../celeba_align_png_cropped/` is the training dataset directory containing 128x128 png images.
+    where `datasets/celeba_align_png_cropped/` is the output directory containing the prepared data format that enables efficient streaming, and `../celeba_align_png_cropped/` is the training dataset directory containing 128x128 png images.
   - **Training**. Run, e.g.,
     ```
     cd ProGAN/
