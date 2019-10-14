@@ -61,7 +61,13 @@ For each dataset, we pre-train four GAN sources:
 - [SNGAN](https://github.com/pfnet-research/sngan_projection)
   - Additional prerequisites: Python 2.7 instead of Python 3.6, chainer, cython, cupy, pyyaml.
   - For data preparation, run
-    '''
+    ```
     cd datasets/
-    python2 celeba.py
-    '''
+    python2 celeba.py ../../img_align_celeba_png/
+    ```
+    Or
+    ```
+    cd datasets/
+    python2 lsun_bedroom_200k ../../lsun_bedroom_train_200k/
+    ```
+    where `../../img_align_celeba_png/` and `../../lsun_bedroom_train_200k/` are the directories containing 128x128 png images.
