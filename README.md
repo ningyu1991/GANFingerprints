@@ -136,7 +136,7 @@ For each dataset, we pre-train four GAN sources:
     - `sample_dir`: The output directory containing generated samples during training.
     - `log_dir`: The output directory containing training log.
     - `random_seed`: The random seed that differentiates training instances.
-  - **Pre-trained models**. Download our pre-trained models [here]() and put them at `./models/`.
+  - **Pre-trained models**. Download our pre-trained models [here]() and put them at `./MMDGAN/models/`.
   - **Generation**. Run, e.g.,
     ```
     export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
