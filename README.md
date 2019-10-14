@@ -108,14 +108,16 @@ For each dataset, we pre-train four GAN sources:
     - `config_path`: The training configuration file. The yml file for LSUN is at `configs/sn_projection_lsun_bedroom_200k.yml`.
     - `snapshot`: The pre-trained GAN model.
     - `results_dir`: The outpupt directory containing generated images.
-    - `num_pngs`: The number of generated images in the format of .png.
+    - `num_pngs`: The number of generated images.
     - `seed`: The random seed that differentiates generation instances.
 - [MMDGAN](https://github.com/mbinkowski/MMD-GAN)
   - **Training**. Run, e.g.,
     ```
-    cd MMD/
+    export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
+    export CUDA_VISIBLE_DEVICES=0
+    cd MMDGAN/
     python3 gan/main.py \
-    --is_train Train \
+    --is_train True \
     --dataset celebA \
     --data_dir ../celeba_align_png_cropped/ \
     --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
@@ -134,3 +136,23 @@ For each dataset, we pre-train four GAN sources:
     - `sample_dir`: The output directory containing generated samples during training.
     - `log_dir`: The output directory containing training log.
     - `random_seed`: The random seed that differentiates training instances.
+  - **Generation**. Run, e.g.,
+    ```
+    export TF_MIN_GPU_MULTIPROCESSOR_COUNT=3
+    export CUDA_VISIBLE_DEVICES=0
+    cd MMDGAN/
+    python3 gan/main.py \
+    --dataset celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir celeba_align_png_cropped/checkpoint/ \
+    --output_dir_of_test_samples gen/celeba_align_png_cropped/ \
+    --no_of_samples 10000 \
+    --model mmd --name mmd --kernel mix_rq_1dot \
+    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
+    --gradient_penalty 1. --L2_discriminator_penalty 1. \
+    --MMD_lr_scheduler \
+    --random_seed 0
+    ```
+    where
+    - `output_dir_of_test_samples`: The outpupt directory containing generated images.
+    - `no_of_samples`: The number of generated images.
