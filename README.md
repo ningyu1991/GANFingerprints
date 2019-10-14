@@ -70,7 +70,7 @@ For each dataset, we pre-train four GAN sources:
     cd SNGAN/datasets/
     python3 lsun_bedroom_200k.py ../../lsun_bedroom_train_200k_png/
     ```
-    where `../../img_align_celeba_png/` and `../../lsun_bedroom_train_200k/` are the training dataset directories containing 128x128 png images.
+    where `../../img_align_celeba_png/` and `../../lsun_bedroom_train_200k_png/` are the training dataset directories containing 128x128 png images.
   - **Training**. Run, e.g.,
     ```
     cd SNGAN/
