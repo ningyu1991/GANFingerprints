@@ -256,4 +256,21 @@ This is another variant from the above regular GAN classifier. Given images of s
   --out_fingerprint_dir fingerprints/GAN_classifier_visNet/
   ```
   where
-  `out_fingerprint_dir`: The output directory containing model fingerprints, image fingerprint(s), and image fingerprints masked(re-weighted) by each model fingerprint.
+  - `out_fingerprint_dir`: The output directory containing model fingerprints, image fingerprint(s), and image fingerprints masked(re-weighted) by each model fingerprint.
+
+## Citation
+```
+@inproceedings{yu2019attributing,
+    author = {Yu, Ning and Davis, Larry and Fritz, Mario},
+    title = {Attributing Fake Images to GANs: Learning and Analyzing GAN Fingerprints},
+    booktitle = {IEEE International Conference on Computer Vision (ICCV)},
+    year = {2019}
+}
+```
+
+## Acknowledgement
+- This research is partially funded by DARPA MediFor program under cooperative agreement FA87501620191.
+- We acknowledge the Maryland Advanced Research Computing Center for providing computing resources.
+- We thank Hao Zhou for helping with the relighting experiments.
+- We also thank Yaser Yacoob and Abhinav Shrivastava for constructive advice in general.
+- We express gratitudes to the [Progressive GAN repository](https://github.com/tkarras/progressive_growing_of_gans) as we benefit a lot from their code.
