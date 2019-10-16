@@ -208,7 +208,7 @@ def train_classifier(
     val_preds = np.argmax(val_logits, axis=1)
     val_gt = np.argmax(val_labels, axis=1)
     val_acc = np.float32(np.sum(val_gt==val_preds)) / np.float32(len(val_gt))
-    print('Val Accuracy = %f' % val_acc)
+    print('Validation Accuracy = %f' % val_acc)
 
     print('Setting up result dir...')
     result_subdir = misc.create_result_subdir(config.result_dir, config.desc)
@@ -283,7 +283,7 @@ def train_classifier(
                 val_preds = np.argmax(val_logits, axis=1)
                 val_gt = np.argmax(val_labels, axis=1)
                 val_acc = np.float32(np.sum(val_gt==val_preds)) / np.float32(len(val_gt))
-                print('Val Accuracy = %f' % val_acc)
+                print('Validation Accuracy = %f' % val_acc)
             
             if cur_tick % network_snapshot_ticks == 0 or done:
                 misc.save_pkl(C_im, os.path.join(result_subdir, 'network-snapshot-%06d.pkl' % (cur_nimg // 1000)))
@@ -315,6 +315,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.app == 'train':
         assert args.training_data_dir != ' ' and args.out_model_dir != ' '
+        if args.validation_data_dir == ' ':
+            args.validation_data_dir = args.training_data_dir
         misc.init_output_logging()
         np.random.seed(args.training_seed)
         print('Initializing TensorFlow...')

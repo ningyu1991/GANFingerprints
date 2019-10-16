@@ -10,7 +10,6 @@ import numpy as np
 import tensorflow as tf
 
 import tfutil
-import config
 
 #----------------------------------------------------------------------------
 # Convenience func that casts all of its arguments to tf.float32.

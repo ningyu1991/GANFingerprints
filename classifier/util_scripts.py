@@ -16,8 +16,8 @@ import misc
 
 def classify(model_path, testing_data_path):
 
-    labels_1 = ['CelebA real data', 'ProGAN generated data', 'SNGAN generated data', 'CramerGAN generated data', 'MMDGAN generated data']
-    labels_2 = ['CelebA real data', 'ProGAN seed 0 generated data ', 'ProGAN seed 1 generated data', 'ProGAN seed 2 generated data', 'ProGAN seed 3 generated data', 'ProGAN seed 4 generated data', 'ProGAN seed 5 generated data', 'ProGAN seed 6 generated data', 'ProGAN seed 7 generated data', 'ProGAN seed 8 generated data', 'ProGAN seed 9 generated data']
+    labels_1 = ['CelebA_real_data', 'ProGAN_generated_data', 'SNGAN_generated_data', 'CramerGAN_generated_data', 'MMDGAN_generated_data']
+    labels_2 = ['CelebA_real_data', 'ProGAN_seed_0_generated_data ', 'ProGAN_seed_1_generated_data', 'ProGAN_seed_2_generated_data', 'ProGAN_seed_3_generated_data', 'ProGAN_seed_4_generated_data', 'ProGAN_seed_5_generated_data', 'ProGAN_seed_6_generated_data', 'ProGAN_seed_7_generated_data', 'ProGAN_seed_8_generated_data', 'ProGAN_seed_9_generated_data']
 
     print('Loading network...')
     C_im = misc.load_network_pkl(model_path)
@@ -32,11 +32,11 @@ def classify(model_path, testing_data_path):
             im = skimage.transform.resize(im, (128, 128))
         im = np.transpose(misc.adjust_dynamic_range(im, [0,1], [-1,1]), axes=[2,0,1])
         im = np.reshape(im, [1]+list(im.shape))
-        logit = C_im.run(im, minibatch_size=1, num_gpus=1, out_dtype=np.float32)
-        idx = np.argmax(np.squeeze(logit))
-        if logit.shape[1] == len(labels_1):
+        logits = C_im.run(im, minibatch_size=1, num_gpus=1, out_dtype=np.float32)
+        idx = np.argmax(np.squeeze(logits))
+        if logits.shape[1] == len(labels_1):
             labels = list(labels_1)
-        elif logit.shape[1] == len(labels_2):
+        elif logits.shape[1] == len(labels_2):
             labels = list(labels_2)
         print('The input image is predicted as being sampled from %s' % labels[idx])
 
@@ -54,11 +54,11 @@ def classify(model_path, testing_data_path):
                 im = skimage.transform.resize(im, (128, 128))
             im = np.transpose(misc.adjust_dynamic_range(im, [0,1], [-1,1]), axes=[2,0,1])
             im = np.reshape(im, [1]+list(im.shape))
-            logit = C_im.run(im, minibatch_size=1, num_gpus=1, out_dtype=np.float32)
-            idx = np.argmax(np.squeeze(logit))
-            if logit.shape[1] == len(labels_1):
+            logits = C_im.run(im, minibatch_size=1, num_gpus=1, out_dtype=np.float32)
+            idx = np.argmax(np.squeeze(logits))
+            if logits.shape[1] == len(labels_1):
                 labels = list(labels_1)
-            elif logit.shape[1] == len(labels_2):
+            elif logits.shape[1] == len(labels_2):
                 labels = list(labels_2)
             if count_dict is None:
                 count_dict = {}
@@ -67,4 +67,4 @@ def classify(model_path, testing_data_path):
             count_dict[labels[idx]] += 1
             print('Classifying %d/%d images: %s: predicted as being sampled from %s' % (count0, length, name, labels[idx]))
         for label in labels:
-            print('The percentage of images sampled from %s is %d/%d = %.2f%%' % (labels[idx], count_dict[label], length, float(count_dict[label])/float(length)*100.0))
+            print('The percentage of images sampled from %s is %d/%d = %.2f%%' % (label, count_dict[label], length, float(count_dict[label])/float(length)*100.0))
