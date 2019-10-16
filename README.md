@@ -26,7 +26,7 @@ To train GANs and our classifiers, we consider two real-world datasets:
 - [LSUN](https://github.com/fyu/lsun) bedroom scene dataset. We select the first 200k images, center-crop them to square size according to the shorter side length, and resize them to 128x128 before training.
   
 ## GAN sources
-For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, MMDGAN, and CramerGAN
+For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, CramerGAN, and MMDGAN
 - [ProGAN](https://github.com/tkarras/progressive_growing_of_gans)
   - **Data preparation**. Run, e.g.,
     ```
@@ -109,50 +109,7 @@ For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, MMDGAN, and Cram
     - `results_dir`: The outpupt directory containing generated images.
     - `num_pngs`: The number of generated images.
     - `seed`: The random seed that differentiates generation instances.
-- [MMDGAN](https://github.com/mbinkowski/MMD-GAN)
-  - **Training**. Run, e.g.,
-    ```
-    cd MMDGAN/
-    python3 gan/main.py \
-    --is_train True \
-    --dataset celebA \
-    --data_dir ../celeba_align_png_cropped/ \
-    --checkpoint_dir models/ \
-    --sample_dir samples/ \
-    --log_dir logs/ \
-    --model mmd --name mmd --kernel mix_rq_1dot \
-    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
-    --gradient_penalty 1. --L2_discriminator_penalty 1. \
-    --MMD_lr_scheduler \
-    --random_seed 0
-    ```
-    where
-    - `dataset`: The dataset ID.
-    - `data_dir`: The training dataset directory containing 128x128 png images.
-    - `checkpoint_dir`: The output directory containing trained models and training snapshots.
-    - `sample_dir`: The output directory containing generated samples during training.
-    - `log_dir`: The output directory containing training log.
-    - `random_seed`: The random seed that differentiates training instances.
-  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/12ac3076DqMQ0tF0xexRRxm6JAYs08ZDH?usp=sharing) and put them at `MMDGAN/models/mmd/`.
-  - **Generation**. With a pre-trained model, generate images of size 128x128 by running, e.g.,
-    ```
-    cd MMDGAN/
-    python3 gan/main.py \
-    --dataset celebA \
-    --data_dir ../celeba_align_png_cropped/ \
-    --checkpoint_dir models/ \
-    --output_dir_of_test_samples gen/celeba_align_png_cropped/ \
-    --no_of_samples 10000 \
-    --model mmd --name mmd --kernel mix_rq_1dot \
-    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
-    --gradient_penalty 1. --L2_discriminator_penalty 1. \
-    --MMD_lr_scheduler \
-    --random_seed 0
-    ```
-    where
-    - `output_dir_of_test_samples`: The outpupt directory containing generated images.
-    - `no_of_samples`: The number of generated images.
-- [CramerGAN](https://github.com/mbinkowski/MMD-GAN) (The same API as MMDGAN)
+- [CramerGAN](https://github.com/mbinkowski/MMD-GAN)
   - **Training**. Run, e.g.,
     ```
     cd CramerGAN/
@@ -169,10 +126,17 @@ For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, MMDGAN, and Cram
     --MMD_lr_scheduler \
     --random_seed 0
     ```
+    where
+    - `dataset`: The dataset ID.
+    - `data_dir`: The training dataset directory containing 128x128 png images.
+    - `checkpoint_dir`: The output directory containing trained models and training snapshots.
+    - `sample_dir`: The output directory containing generated samples during training.
+    - `log_dir`: The output directory containing training log.
+    - `random_seed`: The random seed that differentiates training instances.
   - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1VpD69vknOWbRWt-qb5BryIWKs87EPRis?usp=sharing) and put them at `CramerGAN/models/cramer_gan/`.
   - **Generation**. With a pre-trained model, generate images of size 128x128 by running, e.g.,
     ```
-    cd MMDGAN/
+    cd CramerGAN/
     python3 gan/main.py \
     --dataset celebA \
     --data_dir ../celeba_align_png_cropped/ \
@@ -182,6 +146,42 @@ For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, MMDGAN, and Cram
     --model cramer --name cramer_gan \
     --architecture g_resnet5 --output_size 128 --dof_dim 256 \
     --gradient_penalty 10. \
+    --MMD_lr_scheduler \
+    --random_seed 0
+    ```
+    where
+    - `output_dir_of_test_samples`: The outpupt directory containing generated images.
+    - `no_of_samples`: The number of generated images.
+- [MMDGAN](https://github.com/mbinkowski/MMD-GAN) (The same API as MMDGAN)
+  - **Training**. Run, e.g.,
+    ```
+    cd MMDGAN/
+    python3 gan/main.py \
+    --is_train True \
+    --dataset celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir models/ \
+    --sample_dir samples/ \
+    --log_dir logs/ \
+    --model mmd --name mmd --kernel mix_rq_1dot \
+    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
+    --gradient_penalty 1. --L2_discriminator_penalty 1. \
+    --MMD_lr_scheduler \
+    --random_seed 0
+    ```
+  - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/12ac3076DqMQ0tF0xexRRxm6JAYs08ZDH?usp=sharing) and put them at `MMDGAN/models/mmd/`.
+  - **Generation**. With a pre-trained model, generate images of size 128x128 by running, e.g.,
+    ```
+    cd MMDGAN/
+    python3 gan/main.py \
+    --dataset celebA \
+    --data_dir ../celeba_align_png_cropped/ \
+    --checkpoint_dir models/ \
+    --output_dir_of_test_samples gen/celeba_align_png_cropped/ \
+    --no_of_samples 10000 \
+    --model mmd --name mmd --kernel mix_rq_1dot \
+    --architecture g_resnet5 --output_size 128 --dof_dim 16 \
+    --gradient_penalty 1. --L2_discriminator_penalty 1. \
     --MMD_lr_scheduler \
     --random_seed 0
     ```
@@ -219,7 +219,7 @@ Given images of size 128x128 from real dataset or generated by different GANs, w
   cd classifier/
   python3 run.py \
   --app test \
-  --model_path models/CelebA_ProGAN_SNGAN_CRAMER_MMD_128.pkl \
+  --model_path models/CelebA_ProGAN_SNGAN_CramerGAN_MMDGAN_128.pkl \
   --testing_data_path ../GAN_classifier_datasets/test/
   ```
   where
