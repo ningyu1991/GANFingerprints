@@ -271,6 +271,6 @@ This is another variant from the above regular GAN classifier. Given images of s
 ## Acknowledgement
 - This research is partially funded by DARPA MediFor program under cooperative agreement FA87501620191.
 - We acknowledge the Maryland Advanced Research Computing Center for providing computing resources.
-- We thank Hao Zhou for helping with the relighting experiments.
-- We also thank Yaser Yacoob and Abhinav Shrivastava for constructive advice in general.
+- We thank [Hao Zhou](http://users.umiacs.umd.edu/~hzhou/) for helping with the relighting experiments.
+- We also thank [Yaser Yacoob](https://www.umiacs.umd.edu/people/yaser) and [Abhinav Shrivastava](http://abhinavsh.info/) for constructive advice in general.
 - We express gratitudes to the [ProGAN](https://github.com/tkarras/progressive_growing_of_gans) repository as we benefit a lot from their code.
