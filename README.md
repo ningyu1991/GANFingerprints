@@ -8,6 +8,14 @@
 ## GAN fingerprints demo
 <img src='classifier_visNet/demo/demo.gif' width=800>
 
+- The display window is refreshed every 5 seconds. Each refresh represents a testing case.
+- The left two images are the testing input and its image fingerprint.
+- The 1st row lists the learned model fingerprints of 5 sources, which are unchanged w.r.t refresh.
+- The 2nd row lists the image fingerprint response to each model fingerprint.
+- The 3rd row is a barplot of the response intensity w.r.t. each model fingerprint, the higher the stronger correlation, which also evidences for classification. The plot locates at the column corresponding to the predicted label.
+- The model fingerprint title in green and the green barplot indicate the label ground truth.
+- If there exists a red barplot, it means an incorrect classification. The red barplot indicates the predicted label, which is different from the label ground truth in green.
+
 ## Abstract
 Recent advances in Generative Adversarial Networks (GANs) have shown increasing success in generating photorealistic images. But they also raise challenges to visual forensics and model attribution. We present the first study of learning GAN fingerprints towards image attribution and using them to classify an image as real or GAN-generated. For GAN-generated images, we further identify their sources. Our experiments show that:
 - GANs carry distinct model fingerprints and leave stable fingerprints in their generated images, which support image attribution;
