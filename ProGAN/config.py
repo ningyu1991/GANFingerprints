@@ -42,8 +42,7 @@ env.TF_CPP_MIN_LOG_LEVEL                        = '1'       # 0 (default) = Prin
 
 desc        = 'pgan'                                        # Description string included in result subdir name.
 random_seed = 1000                                         	# Global random seed.
-dataset     = EasyDict()                                    # Options for dataset.load_dataset().
-train       = EasyDict(func='train.train_progressive_gan')  # Options for main training func.
+train       = EasyDict(func='run.train_progressive_gan')  # Options for main training func.
 G           = EasyDict(func='networks.G_paper')             # Options for generator network.
 D           = EasyDict(func='networks.D_paper')             # Options for discriminator network.
 G_opt       = EasyDict(beta1=0.0, beta2=0.99, epsilon=1e-8) # Options for generator optimizer.
@@ -57,14 +56,8 @@ grid        = EasyDict(size='1080p', layout='random')       # Options for train.
 desc += '-celeba';              dataset = EasyDict(tfrecord_dir=training_data); train.mirror_augment = False
 #desc += '-lsun_bedroom';        dataset = EasyDict(tfrecord_dir=training_data); train.mirror_augment = False
 
+# Config presets (choose one). Note: the official settings are optimal. It is not the larger batch size the better.
 desc += '-preset-v2-1gpu'; num_gpus = 1; sched.minibatch_base = 32; sched.minibatch_dict = {4: 512, 8: 256, 16: 128, 32: 64, 64: 32}; sched.lod_training_kimg = 600; sched.lod_transition_kimg = 600; train.total_kimg = 12000; sched.G_lrate_dict = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}; sched.D_lrate_dict = EasyDict(sched.G_lrate_dict)
 
 # Numerical precision (choose one).
 desc += '-fp32'; sched.max_minibatch_per_gpu = {256: 16, 512: 8, 1024: 4}
-
-
-'''
-pkl_path = 'models/%s/network-final.pkl' % training_data
-out_dir = '../MultiGAN_dataset/train/%s' % training_data
-train = EasyDict(func='util_scripts.generate_fake_images', pkl_path=pkl_path, out_dir=out_dir, num_pngs=100, random_seed=1000)
-'''
