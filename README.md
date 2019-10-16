@@ -5,6 +5,9 @@
 - Official Tensorflow implementation for our [ICCV'19 paper](https://arxiv.org/pdf/1811.08180.pdf) on GAN fingerprints definition, learning, visualization, and analysis.
 - Contact: Ning Yu (ningyu AT mpi-inf DOT mpg DOT de)
 
+## GAN fingerprints demo
+<img src='classifier_visNet/demo/demo.gif' width=800>
+
 ## Abstract
 Recent advances in Generative Adversarial Networks (GANs) have shown increasing success in generating photorealistic images. But they also raise challenges to visual forensics and model attribution. We present the first study of learning GAN fingerprints towards image attribution and using them to classify an image as real or GAN-generated. For GAN-generated images, we further identify their sources. Our experiments show that:
 - GANs carry distinct model fingerprints and leave stable fingerprints in their generated images, which support image attribution;
