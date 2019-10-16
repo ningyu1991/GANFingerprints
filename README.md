@@ -273,4 +273,4 @@ This is another variant from the above regular GAN classifier. Given images of s
 - We acknowledge the Maryland Advanced Research Computing Center for providing computing resources.
 - We thank Hao Zhou for helping with the relighting experiments.
 - We also thank Yaser Yacoob and Abhinav Shrivastava for constructive advice in general.
-- We express gratitudes to the [Progressive GAN repository](https://github.com/tkarras/progressive_growing_of_gans) as we benefit a lot from their code.
+- We express gratitudes to the [ProGAN](https://github.com/tkarras/progressive_growing_of_gans) repository as we benefit a lot from their code.
