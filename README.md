@@ -247,3 +247,13 @@ This is another variant from the above regular GAN classifier. Given images of s
   ```
 - **Pre-trained models**. Download our pre-trained models [here](https://drive.google.com/drive/folders/1LE_h8KToDllX9R-Fii5QxNYg-Cmded3_?usp=sharing) and put them at `classifier_visNet/models/`.
 - **Testing**. Run, e.g.,
+  ```
+  cd classifier_visNet/
+  python3 run.py \
+  --app test \
+  --model_path models/CelebA_ProGAN_SNGAN_CramerGAN_MMDGAN_128.pkl \
+  --testing_data_path ../GAN_classifier_datasets/test/ \
+  --out_fingerprint_dir fingerprints/GAN_classifier_visNet/
+  ```
+  where
+  `out_fingerprint_dir`: The output directory containing model fingerprints, image fingerprint(s), and image fingerprints masked(re-weighted) by each model fingerprint.
