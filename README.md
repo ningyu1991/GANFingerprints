@@ -18,11 +18,11 @@
 
 ## Abstract
 Recent advances in Generative Adversarial Networks (GANs) have shown increasing success in generating photorealistic images. But they also raise challenges to visual forensics and model attribution. We present the first study of learning GAN fingerprints towards image attribution and using them to classify an image as real or GAN-generated. For GAN-generated images, we further identify their sources. Our experiments show that:
-- GANs carry distinct model fingerprints and leave stable fingerprints in their generated images, which support image attribution;
-- Even minor differences in GAN training can result in different fingerprints, which enables fine-grained model authentication;
-- Fingerprints persist across different image frequencies and patches and are not biased by GAN artifacts;
-- Fingerprint finetuning is effective in immunizing against five types of adversarial image perturbations;
-- Comparisons also show our learned fingerprints consistently outperform several baselines in a variety of setups.
+- **Existence**: GANs carry distinct model fingerprints and leave stable fingerprints in their generated images, which support image attribution;
+- **Uniqueness**: Even minor differences in GAN training can result in different fingerprints, which enables fine-grained model authentication;
+- **Persistence**: Fingerprints persist across different image frequencies and patches and are not biased by GAN artifacts;
+- **Immunizability**: Fingerprint finetuning is effective in immunizing against five types of adversarial image perturbations;
+- **Superiority**: Comparisons also show our learned fingerprints consistently outperform several baselines in a variety of setups.
 
 ## Prerequisites
 - Linux
