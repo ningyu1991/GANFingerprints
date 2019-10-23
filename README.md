@@ -21,7 +21,7 @@ Recent advances in Generative Adversarial Networks (GANs) have shown increasing 
 - **Existence**: GANs carry distinct model fingerprints and leave stable fingerprints in their generated images, which support image attribution;
 - **Uniqueness**: Even minor differences in GAN training can result in different fingerprints, which enables fine-grained model authentication;
 - **Persistence**: Fingerprints persist across different image frequencies and patches and are not biased by GAN artifacts;
-- **Immunizability**: Fingerprint finetuning is effective in immunizing against five types of adversarial image perturbations;
+- **Immunizability**: Fingerprint finetuning is effective in defending against five types of image perturbation attacks;
 - **Superiority**: Comparisons also show our learned fingerprints consistently outperform several baselines in a variety of setups.
 
 ## Prerequisites
