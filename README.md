@@ -2,7 +2,7 @@
 
 <img src='fig/teaser.png' width=800>
 
-- Official Tensorflow implementation for our [ICCV'19 paper](https://arxiv.org/pdf/1811.08180.pdf) ([poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing) and [media coverage](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q) in Chinese) on GAN fingerprints definition, learning, visualization, and analysis.
+- Official Tensorflow implementation for our [ICCV'19 paper](https://arxiv.org/pdf/1811.08180.pdf) ([poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing), [media coverage](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q) in Chinese) on GAN fingerprints definition, learning, visualization, and analysis.
 - Contact: Ning Yu (ningyu AT mpi-inf DOT mpg DOT de)
 
 ## GAN fingerprints demo
