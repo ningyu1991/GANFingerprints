@@ -163,7 +163,7 @@ For each dataset, we pre-train four GAN sources: ProGAN, SNGAN, CramerGAN, and M
     where
     - `output_dir_of_test_samples`: The outpupt directory containing generated images.
     - `no_of_samples`: The number of generated images.
-- [MMDGAN](https://github.com/mbinkowski/MMD-GAN) (The same API as MMDGAN)
+- [MMDGAN](https://github.com/mbinkowski/MMD-GAN) (The same API as CramerGAN)
   - **Training**. Run, e.g.,
     ```
     cd MMDGAN/
