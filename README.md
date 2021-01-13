@@ -1,9 +1,12 @@
 # GANFingerprints
 
-<img src='fig/teaser.png' width=800>
+### [Attributing Fake Images to GANs: Learning and Analyzing GAN Fingerprints](https://arxiv.org/pdf/1811.08180.pdf)
+[Ning Yu](https://sites.google.com/site/ningy1991/), [Larry Davis](http://users.umiacs.umd.edu/~lsd/), [Mario Fritz](https://cispa.saarland/group/fritz/)<br>
+ICCV 2019
 
-- Official Tensorflow implementation for our [ICCV'19 paper](https://arxiv.org/pdf/1811.08180.pdf) ([poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing), [media coverage](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q) in Chinese) on GAN fingerprints definition, learning, visualization, and analysis.
-- Contact: Ning Yu (ningyu AT mpi-inf DOT mpg DOT de)
+### [paper](https://arxiv.org/pdf/1811.08180.pdf) | [poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing) | [media coverage in Chinese](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q)
+
+<img src='fig/teaser.png' width=800>
 
 ## GAN fingerprints demo
 <img src='classifier_visNet/demo/demo.gif' width=800>
@@ -26,9 +29,9 @@ Recent advances in Generative Adversarial Networks (GANs) have shown increasing 
 
 ## Prerequisites
 - Linux
-- NVIDIA GPU + CUDA + CuDNN
+- NVIDIA GPU + CUDA 10.0 + CuDNN 7.5
 - Python 3.6
-- tensorflow-gpu
+- tensorflow-gpu 1.12
 - Other Python dependencies: numpy, scipy, moviepy, Pillow, skimage, lmdb, opencv-python, cryptography, h5py, six, chainer, cython, cupy, pyyaml
 
 ## Datasets
