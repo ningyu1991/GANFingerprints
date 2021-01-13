@@ -1,4 +1,4 @@
-# GANFingerprints
+# GAN Fingerprints
 
 ### [Attributing Fake Images to GANs: Learning and Analyzing GAN Fingerprints](https://arxiv.org/pdf/1811.08180.pdf)
 [Ning Yu](https://sites.google.com/site/ningy1991/), [Larry Davis](http://users.umiacs.umd.edu/~lsd/), [Mario Fritz](https://cispa.saarland/group/fritz/)<br>
