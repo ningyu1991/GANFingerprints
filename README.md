@@ -32,7 +32,7 @@ Recent advances in Generative Adversarial Networks (GANs) have shown increasing 
 - NVIDIA GPU + CUDA 10.0 + CuDNN 7.5
 - Python 3.6
 - tensorflow-gpu 1.12
-- Other Python dependencies: numpy, scipy, moviepy, Pillow, skimage, lmdb, opencv-python, cryptography, h5py, six, chainer, cython, cupy, pyyaml
+- To install the other Python dependencies, run `pip3 install -r requirements.txt`.
 
 ## Datasets
 To train GANs and our classifiers, we consider two real-world datasets:
