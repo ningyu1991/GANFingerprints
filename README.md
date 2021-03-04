@@ -4,7 +4,7 @@
 [Ning Yu](https://ningyu1991.github.io/), [Larry Davis](http://users.umiacs.umd.edu/~lsd/), [Mario Fritz](https://cispa.saarland/group/fritz/)<br>
 ICCV 2019
 
-### [paper](https://arxiv.org/pdf/1811.08180.pdf) | [poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing) | [media coverage in Chinese](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q)
+### [paper](https://arxiv.org/pdf/1811.08180.pdf) | [project page](https://ningyu1991.github.io/projects/GANFingerprints.html) | [poster](https://drive.google.com/file/d/11OurZsV4GJEfyrn-BgrkGrQR2SelKdQc/view?usp=sharing) | [media coverage in Chinese](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q)
 
 <img src='fig/teaser.png' width=800>
 
