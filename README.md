@@ -283,7 +283,7 @@ This is another variant from the above regular GAN classifier. Given images of s
 ```
 
 ## Acknowledgement
-- This research is partially funded by DARPA MediFor program under cooperative agreement FA87501620191.
+- This research is partially funded by DARPA MediFor program under cooperative agreement FA87501620191. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the DARPA.
 - We acknowledge the Maryland Advanced Research Computing Center for providing computing resources.
 - We thank [Hao Zhou](http://users.umiacs.umd.edu/~hzhou/) for helping with the relighting experiments.
 - We also thank [Yaser Yacoob](https://www.umiacs.umd.edu/people/yaser) and [Abhinav Shrivastava](http://abhinavsh.info/) for constructive advice in general.
