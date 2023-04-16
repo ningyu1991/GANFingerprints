@@ -1,7 +1,7 @@
 # GAN Fingerprints
 
 ### [Attributing Fake Images to GANs: Learning and Analyzing GAN Fingerprints](https://arxiv.org/pdf/1811.08180.pdf)
-[Ning Yu](https://ningyu1991.github.io/), [Larry Davis](http://users.umiacs.umd.edu/~lsd/), [Mario Fritz](https://cispa.saarland/group/fritz/)<br>
+[Ning Yu](https://ningyu1991.github.io/), [Larry Davis](https://lsd.umiacs.io/), [Mario Fritz](https://cispa.saarland/group/fritz/)<br>
 ICCV 2019
 
 ### [paper](https://arxiv.org/pdf/1811.08180.pdf) | [project page](https://ningyu1991.github.io/projects/GANFingerprints.html) | [poster](https://ningyu1991.github.io/homepage_files/poster_GANFingerprints.pdf) | [media coverage in Chinese](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q)
