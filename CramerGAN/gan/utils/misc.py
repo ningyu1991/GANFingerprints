@@ -12,6 +12,8 @@ from time import gmtime, strftime
 import tensorflow as tf
 from six.moves import xrange
 
+from PIL import Image
+
 pp = pprint.PrettyPrinter()
 
 def inverse_transform(images):
@@ -19,8 +21,10 @@ def inverse_transform(images):
 
 
 def save_images(images, size, image_path):
-    merged = merge(inverse_transform(images), size)
-    return scipy.misc.imsave(image_path, merged)
+    merged = merge(images, size)
+    merged *= 255. # scale back to [0, 255]
+    merged = np.clip(merged, 0., 255.).astype(np.uint8)
+    return Image.fromarray(merged).save(image_path)
 
 
 def merge(images, size):
